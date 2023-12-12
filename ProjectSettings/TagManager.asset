@@ -8,6 +8,9 @@ TagManager:
   - plataforma
   - botongrav
   - Muro
+  - GM
+  - Muro1
+  - Muro2
   layers:
   - Default
   - TransparentFX
