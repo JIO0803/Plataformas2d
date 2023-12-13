@@ -61,4 +61,13 @@ public class Movjugador : MonoBehaviour
     {
         grounded = false;
     }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+            transform.parent = col.transform;
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+            col.transform.parent = null;
+    }
 }

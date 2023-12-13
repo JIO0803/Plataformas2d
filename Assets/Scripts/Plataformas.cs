@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Plataformas : MonoBehaviour
 {
+
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _speed;
     [SerializeField] private float _chechDistance = 0.05f;
@@ -11,7 +12,7 @@ public class Plataformas : MonoBehaviour
     private int _currentWaypointIndex = 0;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _targetWaypoint = _waypoints[0];
     }

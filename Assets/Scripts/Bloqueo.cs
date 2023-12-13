@@ -6,11 +6,12 @@ using UnityEngine;
 public class Bloqueo : MonoBehaviour
 {
     public BoxCollider2D colision;
+    public GameObject Obstaculo;
     public void OnTriggerEnter2D(Collider2D collission)
     {
         if (collission.gameObject.tag == "Player") 
         {
-            colision.enabled = true;
+            Obstaculo.SetActive(true);
         }
     }
 }
