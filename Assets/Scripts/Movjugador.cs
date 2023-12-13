@@ -63,11 +63,17 @@ public class Movjugador : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.tag == "platform")
+        {
             transform.parent = col.transform;
+        }
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
+        if (col.gameObject.tag == "platform")
+        {
             col.transform.parent = null;
+        }
     }
 }

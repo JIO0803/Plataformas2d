@@ -27,7 +27,7 @@ public class balas : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else
+        if (collision.gameObject.tag == "antibala")
         {
             Destroy(gameObject);
         }

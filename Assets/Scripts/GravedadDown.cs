@@ -12,7 +12,6 @@ public class GravedadDown : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Metocahte");
             collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = 5;
             collision.gameObject.GetComponent<Movjugador>().salto = 2.5f;
         }
