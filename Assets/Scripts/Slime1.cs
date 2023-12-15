@@ -11,7 +11,7 @@ public class Slimeleft : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * altura);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * altura, ForceMode2D.Impulse);
         }
     }
 }

@@ -21,7 +21,7 @@ public class Activarpared : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Muro.GetComponent<Plataformas>().enabled = true;
+        Muro.GetComponent<Plataformas>().enabled = false;
         Cañon.SetActive(true);
     }  
 }

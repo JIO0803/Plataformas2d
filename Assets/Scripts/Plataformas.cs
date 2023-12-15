@@ -42,3 +42,4 @@ public class Plataformas : MonoBehaviour
         return _waypoints[_currentWaypointIndex];
     }
 }
+

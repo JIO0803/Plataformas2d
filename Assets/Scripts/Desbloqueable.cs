@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Desbloqueable : MonoBehaviour
 {
-    public BoxCollider2D colision;
     public GameObject Obstaculo;
     public void OnTriggerEnter2D(Collider2D collission)
     {

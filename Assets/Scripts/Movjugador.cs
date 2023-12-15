@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -35,10 +36,10 @@ public class Movjugador : MonoBehaviour
             rb.AddForce(Vector2.up * salto * doublejump, ForceMode2D.Impulse);
             saltos = 0;
         }
-        if (grounded) 
+        if (grounded)
         {
             saltos += 1;
-           
+
             if (saltos >= 1)
             {
                 saltos = 1;
@@ -51,19 +52,28 @@ public class Movjugador : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        grounded = true;
-    } 
+        if (collision.isTrigger == false)
+        {
+            grounded = true;
+        }
+    }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        grounded = true;
+        if (collision.isTrigger == false)
+        {
+            grounded = true;
+        }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        grounded = false;
+        if (collision.isTrigger == false)
+        {
+            grounded = false;
+        }
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "platform")
+        if (col.gameObject.tag == "plataforma")
         {
             transform.parent = col.transform;
         }
@@ -71,7 +81,7 @@ public class Movjugador : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.tag == "platform")
+        if (col.gameObject.tag == "plataforma")
         {
             col.transform.parent = null;
         }
