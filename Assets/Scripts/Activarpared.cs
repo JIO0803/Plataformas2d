@@ -5,7 +5,6 @@ using UnityEngine;
 public class Activarpared : MonoBehaviour
 {
     public GameObject Muro;
-    public GameObject Cañon;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,6 @@ public class Activarpared : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Muro.GetComponent<Plataformas>().enabled = false;
-        Cañon.SetActive(true);
+        Muro.GetComponent<Plataformas>().enabled = true;
     }  
 }

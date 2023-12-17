@@ -15,6 +15,7 @@ public class GravedadUp : MonoBehaviour
             Debug.Log("Metocahte");
             collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = - 5;
             collision.gameObject.GetComponent<Movjugador>().salto = -2.5f;
+            collision.transform.localScale = new Vector2(transform.localScale.x, -14.59804f);
         }
     }
 }
