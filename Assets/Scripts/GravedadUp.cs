@@ -17,5 +17,7 @@ public class GravedadUp : MonoBehaviour
             collision.gameObject.GetComponent<Movjugador>().salto = -2.5f;
             collision.transform.localScale = new Vector2(transform.localScale.x, -14.59804f);
         }
+
+        Destroy(gameObject);
     }
 }

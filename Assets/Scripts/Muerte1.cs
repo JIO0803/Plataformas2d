@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Muerte1 : MonoBehaviour
 {
+    public Animator animator;
     void Start()
     {
         
@@ -24,5 +25,4 @@ public class Muerte1 : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-
 }

@@ -27,6 +27,8 @@ public class vidaenemigo : MonoBehaviour
 
     }
 
+    
+
     void Muere()
     {
         Debug.Log("Enemy died!");

@@ -15,6 +15,7 @@ public class Movjugador : MonoBehaviour
     public int saltos = 1;
     public float doublejump;
     public Animator animator;
+    bool jump = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +43,12 @@ public class Movjugador : MonoBehaviour
 
         float speed = Mathf.Abs(rb.velocity.x);
 
-        animator.SetFloat("Speed", speed);
+        animator.SetFloat("Speed", speed); 
 
         if (Input.GetButtonDown("Jump") && grounded)
         {
+            jump = true;
+            animator.SetBool("Isjumping", true);
             rb.AddForce(Vector2.up * salto, ForceMode2D.Impulse);
         }
         if (Input.GetButtonDown("Jump") && saltos == 1)
@@ -67,6 +70,7 @@ public class Movjugador : MonoBehaviour
             }
         }
     }
+
 
     // Update is called once per frame
     public void OnTriggerEnter2D(Collider2D collision)
