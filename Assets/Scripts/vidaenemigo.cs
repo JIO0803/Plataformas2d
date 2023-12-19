@@ -27,8 +27,6 @@ public class vidaenemigo : MonoBehaviour
 
     }
 
-    
-
     void Muere()
     {
         Debug.Log("Enemy died!");
@@ -44,6 +42,5 @@ public class vidaenemigo : MonoBehaviour
             gameObject.GetComponent<Muerte1>().enabled = false;
         }
     }   
-
 }
     
