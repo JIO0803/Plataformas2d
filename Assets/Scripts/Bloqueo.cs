@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Bloqueo : MonoBehaviour
 {
-    public BoxCollider2D colision;
+    public GameObject puerta;
     public GameObject Obstaculo;
     public void OnTriggerEnter2D(Collider2D collission)
     {
         if (collission.gameObject.tag == "Player") 
         {
-            Obstaculo.SetActive(true);
+            puerta.GetComponent<Plataformas1>().enabled = true;
+            Obstaculo.GetComponent<Plataformas>().enabled = true;
         }
     }
 }

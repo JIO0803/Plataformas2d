@@ -27,7 +27,12 @@ public class Movjugador : MonoBehaviour
         float rightInput = Input.GetAxis("Right");
         rb.velocity = new Vector2(rightInput * Velocidad, rb.velocity.y);
 
+        animator.SetFloat("Speed", Mathf.Abs(rightInput));
+
         float leftInput = Input.GetAxis("Left");
+
+        animator.SetFloat("Speed", Mathf.Abs(leftInput));
+
         rb.velocity = new Vector2(leftInput * Velocidad, rb.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
@@ -51,6 +56,7 @@ public class Movjugador : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && saltos == 1)
         {
+            animator.SetBool("Isjumping", true);
             rb.AddForce(Vector2.up * salto * doublejump, ForceMode2D.Impulse);
             saltos = 0;
         }
