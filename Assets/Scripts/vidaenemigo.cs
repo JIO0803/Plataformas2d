@@ -5,18 +5,19 @@ using UnityEngine;
 public class vidaenemigo : MonoBehaviour
 {
     public Animator animator;
-    private int maxHealth = 100;
-    int currentHealth;
-    public GameObject enemigo;
+    public int maxHealth = 100;
+    public int currentHealth;
+    private Rigidbody2D rb;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    private void TakeDamage()
     {
-        currentHealth -= damage;
+        currentHealth -= 50;
 
         animator.SetTrigger("Hurt");
 
@@ -24,7 +25,6 @@ public class vidaenemigo : MonoBehaviour
         {
             Muere();
         }
-
     }
 
     void Muere()
@@ -35,7 +35,7 @@ public class vidaenemigo : MonoBehaviour
 
         gameObject.GetComponent<IA>().enabled = false;   
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 5;
-        gameObject.GetComponent<vidaenemigo>().enabled = true;
+        gameObject.GetComponent<vidaenemigo>().enabled = false;
 
         if(currentHealth <= 0)
         {

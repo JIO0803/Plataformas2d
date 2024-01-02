@@ -26,40 +26,37 @@ public class Movjugador : MonoBehaviour
     {
         float rightInput = Input.GetAxis("Right");
         rb.velocity = new Vector2(rightInput * Velocidad, rb.velocity.y);
-
         animator.SetFloat("Speed", Mathf.Abs(rightInput));
 
         float leftInput = Input.GetAxis("Left");
-
-        animator.SetFloat("Speed", Mathf.Abs(leftInput));
-
         rb.velocity = new Vector2(leftInput * Velocidad, rb.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(leftInput));   
 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
-            transform.localScale = new Vector2(14.59804f, transform.localScale.y);
+            transform.localScale = new Vector2(1, transform.localScale.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.localScale = new Vector2(-14.59804f, transform.localScale.y);
+            transform.localScale = new Vector2(-1, transform.localScale.y);
         }
-
-        float speed = Mathf.Abs(rb.velocity.x);
-
-        animator.SetFloat("Speed", speed); 
-
-        if (Input.GetButtonDown("Jump") && grounded)
+       
+        if (Input.GetButtonDown("Jump"))
         {
             animator.SetBool("Isjumping", true);
-            rb.AddForce(Vector2.up * salto, ForceMode2D.Impulse);
+
+            if (Input.GetButtonDown("Jump") && grounded)
+            {
+                rb.AddForce(Vector2.up * salto, ForceMode2D.Impulse);
+            }
+            if (Input.GetButtonDown("Jump") && saltos == 1)
+            {
+                rb.AddForce(Vector2.up * salto * doublejump, ForceMode2D.Impulse);
+                saltos = 0;
+            }
         }
-        if (Input.GetButtonDown("Jump") && saltos == 1)
-        {
-            animator.SetBool("Isjumping", true);
-            rb.AddForce(Vector2.up * salto * doublejump, ForceMode2D.Impulse);
-            saltos = 0;
-        }
+
         if (grounded)
         {
             saltos += 1;
@@ -75,13 +72,13 @@ public class Movjugador : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.isTrigger == false)
         {
             grounded = true;
+            animator.SetBool("Isjumping", false);
         }
     }
     public void OnTriggerStay2D(Collider2D collision)
@@ -96,21 +93,7 @@ public class Movjugador : MonoBehaviour
         if (collision.isTrigger == false)
         {
             grounded = false;
+            animator.SetBool("Isjumping", true);
         }
     }
-    void OnCollisionEnter2D(Collision2D col)           
-    {
-        if (col.gameObject.tag == "plataforma") 
-        {
-            transform.parent = col.transform;
-        }
-    }
-    void OnCollisionExit2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "plataforma")
-        {
-            transform.parent = null;
-        }
-    }
-        
 }

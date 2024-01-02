@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Plataformas : MonoBehaviour
@@ -10,6 +11,8 @@ public class Plataformas : MonoBehaviour
     [SerializeField] private float _chechDistance = 0.05f;
     private Transform _targetWaypoint;
     private int _currentWaypointIndex = 0;
+    
+
 
     // Start is called before the first frame update
     private void Start()
@@ -41,5 +44,18 @@ public class Plataformas : MonoBehaviour
 
         return _waypoints[_currentWaypointIndex];
     }
-}
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.SetParent(transform);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        collision.transform.SetParent(transform);
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.SetParent(null);
+    }
+}
