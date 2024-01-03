@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3049757078634971332}
   - component: {fileID: 1239154310167878737}
   - component: {fileID: 9007542774438811433}
-  - component: {fileID: 5001236698784616502}
   - component: {fileID: 6523739361838212733}
   m_Layer: 7
   m_Name: Ojovloador (1)
@@ -36,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 173
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9159825290478023868
 SpriteRenderer:
@@ -169,19 +168,6 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   player: {fileID: 0}
---- !u!114 &5001236698784616502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4317564829278770390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5c27a689c724043a76787888578911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1597832188483918072}
 --- !u!58 &6523739361838212733
 CircleCollider2D:
   m_ObjectHideFlags: 0

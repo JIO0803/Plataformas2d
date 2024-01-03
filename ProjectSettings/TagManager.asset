@@ -15,6 +15,10 @@ TagManager:
   - antibala
   - enemigo
   - plataforma1
+  - H1
+  - H2
+  - H3
+  - Trampas
   layers:
   - Default
   - TransparentFX

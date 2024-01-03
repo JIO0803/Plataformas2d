@@ -32,7 +32,7 @@ public class Movjugador : MonoBehaviour
         rb.velocity = new Vector2(leftInput * Velocidad, rb.velocity.y);
         animator.SetFloat("Speed", Mathf.Abs(leftInput));   
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             transform.localScale = new Vector2(1, transform.localScale.y);
         }
@@ -45,7 +45,11 @@ public class Movjugador : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             animator.SetBool("Isjumping", true);
-
+            if (Input.GetMouseButtonDown(0))
+            {
+                animator.SetBool("Isjumping", false);
+                animator.SetTrigger("Ataque");
+            }
             if (Input.GetButtonDown("Jump") && grounded)
             {
                 rb.AddForce(Vector2.up * salto, ForceMode2D.Impulse);

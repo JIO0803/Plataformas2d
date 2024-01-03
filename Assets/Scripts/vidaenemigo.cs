@@ -15,32 +15,27 @@ public class vidaenemigo : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void TakeDamage()
+    public void TakeDamage()
     {
         currentHealth -= 50;
 
         animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
-        {
+        {   
             Muere();
         }
     }
 
     void Muere()
     {
-        Debug.Log("Enemy died!");
 
         animator.SetBool("IsDead", true);
 
         gameObject.GetComponent<IA>().enabled = false;   
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 5;
         gameObject.GetComponent<vidaenemigo>().enabled = false;
-
-        if(currentHealth <= 0)
-        {
-            gameObject.GetComponent<Muerte1>().enabled = false;
-        }
+        gameObject.tag = "Untagged";
     }   
 }
     

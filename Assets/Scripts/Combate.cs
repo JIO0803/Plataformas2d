@@ -22,7 +22,7 @@ public class Combate : MonoBehaviour
             if(Input.GetMouseButtonDown(0)) 
             {
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
+                nextAttackTime = Time.time + 1.5f / attackRate;
             }
         }
     }
@@ -46,11 +46,11 @@ public class Combate : MonoBehaviour
             }
         }
     }
+
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;
-
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
