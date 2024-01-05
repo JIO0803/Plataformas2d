@@ -15,7 +15,7 @@ public class Movjugador : MonoBehaviour
     public int saltos = 1;
     public float doublejump;
     public Animator animator;
-
+    public float altura = 50f;
     // Start is called before the first frame update
     void Start()
     {

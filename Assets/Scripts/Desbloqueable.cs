@@ -13,11 +13,6 @@ public class Desbloqueable : MonoBehaviour
         {
             Destroy(gameObject);
             Obstaculo.SetActive(false);
-        }
-        
-        if (collission.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
             Obstaculo2.SetActive(false);
         }
     }

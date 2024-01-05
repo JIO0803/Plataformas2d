@@ -6,7 +6,6 @@ public class Plataformas1 : MonoBehaviour
 {
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _speed;
-    [SerializeField] private float _chechDistance = 0.05f;
     private Transform _targetWaypoint;
     private int _currentWaypointIndex = 0;
 

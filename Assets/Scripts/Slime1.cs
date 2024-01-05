@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Slimeleft : MonoBehaviour
+public class Slime1 : MonoBehaviour
 {
     public float altura = 50f;
 
@@ -11,7 +11,7 @@ public class Slimeleft : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * altura, ForceMode2D.Impulse);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * altura, ForceMode2D.Impulse);
         }
     }
 }

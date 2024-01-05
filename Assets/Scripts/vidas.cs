@@ -21,10 +21,6 @@ public class vidas : MonoBehaviour
     bool invoked = false;
     public float empuje = 10;
 
-    private void Start()
-    {
-
-    }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("enemigo") && (Time.time >= nextAttackTime))
