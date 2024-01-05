@@ -18,7 +18,6 @@ public class vidas : MonoBehaviour
 
     public float attackRate = 1f;
     float nextAttackTime = 0f;
-    bool invoked = false;
     public float empuje = 10;
 
     private void OnCollisionStay2D(Collision2D collision)

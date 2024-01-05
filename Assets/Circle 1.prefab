@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 952492908432060044}
   m_Layer: 0
   m_Name: Circle 1
-  m_TagString: enemigo
+  m_TagString: Trampas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8829804026075249911
 Transform:
   m_ObjectHideFlags: 0

@@ -90,6 +90,7 @@ public class Movjugador : MonoBehaviour
         if (collision.isTrigger == false)
         {
             grounded = true;
+            animator.SetBool("Isjumping", false);
         }
     }
     public void OnTriggerExit2D(Collider2D collision)

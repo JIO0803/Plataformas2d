@@ -47,15 +47,26 @@ public class Plataformas : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.transform.SetParent(transform);
+        if (CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform);
+        }
+      
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        collision.transform.SetParent(transform);
+        if (CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform);
+        }
     }
     void OnCollisionExit2D(Collision2D collision)
     {
-        collision.transform.SetParent(null);
+        if (CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
+        }
+        
     }
 }

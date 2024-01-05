@@ -10,13 +10,11 @@ public class Activarpared : MonoBehaviour
     void Start()
     {
         GetComponent<Plataformas>();
-        GetComponent<Plataformas1>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {   
         Muro.GetComponent<Plataformas>().enabled = true;
-        Muro.GetComponent<Plataformas1>().enabled = true;
         Destroy(gameObject);
     }  
 }

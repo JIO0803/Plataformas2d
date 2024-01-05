@@ -15,6 +15,7 @@ public class Aparecer : MonoBehaviour
             Inactivo.SetActive(false);
             Inactivo1.SetActive(false);
             Activo.SetActive(true);
+            Destroy(gameObject);
         }
     }
 }
