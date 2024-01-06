@@ -14,7 +14,10 @@ public class Activarpared : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {   
-        Muro.GetComponent<Plataformas>().enabled = true;
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            Muro.GetComponent<Plataformas>().enabled = true;
+            Destroy(gameObject);
+        }      
     }  
 }

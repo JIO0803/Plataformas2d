@@ -45,6 +45,25 @@ public class vidas : MonoBehaviour
         if (collision.gameObject.CompareTag("Trampas") || collision.gameObject.CompareTag("Muro"))
         {
             animator.SetBool("Muerte", true);
+            animator.SetBool("Isjumping", false);
+            H1.enabled = false;
+            H2.enabled = false;
+            H3.enabled = false;
+            gameObject.GetComponent<Movjugador>().enabled = false;
+            gameObject.GetComponent<vidas>().enabled = false;
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            Invoke("Muere", delayTime);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trampas") || collision.gameObject.CompareTag("Muro"))
+        {
+            animator.SetBool("Muerte", true);
+            animator.SetBool("Isjumping", false);
             H1.enabled = false;
             H2.enabled = false;
             H3.enabled = false;
@@ -87,6 +106,7 @@ public class vidas : MonoBehaviour
         if (vidaPersActual <= 0)
         {
             animator.SetBool("Muerte", true);
+            animator.SetBool("Isjumping", false);
             H1.enabled = false;
             H2.enabled = false;
             H3.enabled = false;
