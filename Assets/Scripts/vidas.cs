@@ -14,7 +14,7 @@ public class vidas : MonoBehaviour
     public Image H1;
     public Image H2;
     public Image H3;
-    public float delayTime = 1.5f;
+    public float delayTime = 1f;
 
     public float attackRate = 1f;
     float nextAttackTime = 0f;
@@ -60,6 +60,10 @@ public class vidas : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Respawn"))
+        {
+            vidaPersActual = 3f;
+        }
         if (collision.gameObject.CompareTag("Trampas") || collision.gameObject.CompareTag("Muro"))
         {
             animator.SetBool("Muerte", true);

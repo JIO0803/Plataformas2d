@@ -18,5 +18,9 @@ public class GravedadUp : MonoBehaviour
             collision.transform.localScale = new Vector2(1, -1);
         }
 
+        if (gameObject.tag == "botongrav" && collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
-}
+} 

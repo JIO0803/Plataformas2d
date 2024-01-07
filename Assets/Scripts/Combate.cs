@@ -19,7 +19,7 @@ public class Combate : MonoBehaviour
     {
         if(Time.time >= nextAttackTime)
         {
-            if(Input.GetMouseButtonDown(0)) 
+            if(Input.GetMouseButtonDown(0) || Input.GetButtonDown("Vertical")) 
             {
                 Attack();
                 nextAttackTime = Time.time + 1.5f / attackRate;
