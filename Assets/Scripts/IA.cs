@@ -13,7 +13,7 @@ public class IA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -27,6 +27,15 @@ public class IA : MonoBehaviour
         if (distance < distanceBetween)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+
+        if (player.transform.position.x >= transform.position.x)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (player.transform.position.x <= transform.position.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
     }
 }

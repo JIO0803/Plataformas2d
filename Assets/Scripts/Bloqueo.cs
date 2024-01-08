@@ -7,12 +7,30 @@ public class Bloqueo : MonoBehaviour
 {
     public GameObject puerta;
     public GameObject Obstaculo;
-    public void OnTriggerEnter2D(Collider2D collission)
+    public Animator animator;
+    public int maxHealth = 50;
+    public int currentHealth;
+    public GameObject player;
+
+    void Start()
     {
-        if (collission.gameObject.tag == "Player") 
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth -= 50;
+
+        animator.SetTrigger("Activado");
+
+        if (currentHealth <= 0)
         {
-            puerta.GetComponent<Plataformas1>().enabled = true;
-            Obstaculo.GetComponent<Plataformas>().enabled = true;
+            Activado();
         }
+    }
+
+    void Activado()
+    {
+        Obstaculo.GetComponent<Plataformas>().enabled = true;
     }
 }

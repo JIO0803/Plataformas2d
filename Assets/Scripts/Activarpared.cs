@@ -12,14 +12,12 @@ public class Activarpared : MonoBehaviour
         GetComponent<Plataformas>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter2D(Collider2D other)
-    {
-        Muro.GetComponent<Plataformas>().enabled = true;
+    {   
+        if (other.CompareTag("Player"))
+        {
+            Muro.GetComponent<Plataformas>().enabled = true;
+            Destroy(gameObject);
+        }      
     }  
 }

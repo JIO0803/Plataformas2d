@@ -10,31 +10,40 @@ public class Combate : MonoBehaviour
     public LayerMask enemyLayers;
 
     public float attackRange = 0.5f;
-    public int attackDamage = 50;
 
     public float attackRate = 1f;
-    float nextAttackTime = 0f;  
+    float nextAttackTime = 0f;
+
+    public float empuje = 10;
     void Update()
     {
         if(Time.time >= nextAttackTime)
         {
-            if(Input.GetMouseButtonDown(0)) 
+            if(Input.GetMouseButtonDown(0) || Input.GetButtonDown("Vertical")) 
             {
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
+                nextAttackTime = Time.time + 1.5f / attackRate;
             }
         }
     }
 
     void Attack()
     {
-        animator.SetTrigger("Attack");
-            
+        animator.SetTrigger("Ataque");
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<vidaenemigo>().TakeDamage(attackDamage);
+            enemy.GetComponent<vidaenemigo>().TakeDamage();
+            if (gameObject.transform.localScale == new Vector3(1, transform.localScale.y))
+            {
+                enemy.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * empuje, ForceMode2D.Impulse);
+            }
+            if (gameObject.transform.localScale == new Vector3(-1, transform.localScale.y))
+            {
+                enemy.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * empuje, ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -42,7 +51,6 @@ public class Combate : MonoBehaviour
     {
         if (attackPoint == null)
             return;
-
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
