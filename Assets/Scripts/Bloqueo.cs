@@ -31,6 +31,7 @@ public class Bloqueo : MonoBehaviour
 
     void Activado()
     {
+        puerta.GetComponent<Plataformas1>().enabled = true;
         Obstaculo.GetComponent<Plataformas>().enabled = true;
     }
 }
