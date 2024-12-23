@@ -45,6 +45,7 @@ public class vidas : MonoBehaviour
         if (collision.gameObject.CompareTag("Trampas") || collision.gameObject.CompareTag("Muro"))
         {
             animator.SetBool("Muerte", true);
+<<<<<<< HEAD
             animator.SetBool("Isjumping", false);
             H1.enabled = false;
             H2.enabled = false;
@@ -68,6 +69,8 @@ public class vidas : MonoBehaviour
         {
             animator.SetBool("Muerte", true);
             animator.SetBool("Isjumping", false);
+=======
+>>>>>>> parent of 98fd130 (07/01/2024)
             H1.enabled = false;
             H2.enabled = false;
             H3.enabled = false;
@@ -110,7 +113,6 @@ public class vidas : MonoBehaviour
         if (vidaPersActual <= 0)
         {
             animator.SetBool("Muerte", true);
-            animator.SetBool("Isjumping", false);
             H1.enabled = false;
             H2.enabled = false;
             H3.enabled = false;

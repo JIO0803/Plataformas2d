@@ -47,7 +47,7 @@ public class Plataformas : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (CompareTag("Player"))
         {
             collision.transform.SetParent(transform);
         }
@@ -56,14 +56,14 @@ public class Plataformas : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (CompareTag("Player"))
         {
             collision.transform.SetParent(transform);
         }
     }
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (CompareTag("Player"))
         {
             collision.transform.SetParent(null);
         }
